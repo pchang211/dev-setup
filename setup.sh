@@ -15,23 +15,29 @@ pathogen() {
 }
 
 vim_plugins() {
+	mkdir -p ~/.vim/bundle
 	cd ~/.vim/bundle 
-	git clone https://github.com/tpope/vim-sensible.git
-	git clone git://github.com/airblade/vim-gitgutter.git
-	git clone https://github.com/vim-airline/vim-airline
+	git clone https://github.com/tpope/vim-sensible.git ~/.vim/bundle/vim-sensible.git
+	git clone git://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/vim-gitgutter
+	git clone https://github.com/vim-airline/vim-airline ~/.vim/bundle/vim-airline
+	git clone https://github.com/scrooloose/nerdtree.git ~/.vim/bundle/nerdtree
+	git clone https://github.com/terryma/vim-multiple-cursors ~/.vim/bundle/vim-multiple-cursors
 }
 
-if [ $1 -eq "fzf" ] 
+if [ $1 == "fzf" ] 
 then 
 	fzf
-elif [ $1 -eq "pathogen" ]
+elif [ $1 == "pathogen" ]
 then
 	pathogen
-elif [ $1 -eq "vim_plugins" ]
+elif [ $1 == "vim_plugins" ]
 then
 	vim_plugins
-elif [ $1 -eq "all" ]
+elif [ $1 == "all" ]
 then
 	fzf
 	pathogen
 	vim_plugins
+else
+	echo "Invalid target. Options: [fzf, pathogen, vim_plugins, all]"
+fi
