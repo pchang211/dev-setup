@@ -29,6 +29,12 @@ bash() {
 	cp .bash_profile ~/
 }
 
+tmux() {
+	/usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+	yes | brew install tmux
+	cp .tmux.conf ~/
+}
+
 if [ $1 == "fzf" ] 
 then 
 	fzf
@@ -41,11 +47,16 @@ then
 elif [ $1 == "bash" ]
 then
 	bash
+elif [ $1 == "tmux" ]
+then
+	tmux
 elif [ $1 == "all" ]
 then
 	fzf
 	pathogen
 	vim_plugins
+	bash
+	tmux
 else
-	echo "Invalid target. Options: [fzf, pathogen, vim_plugins, all]"
+	echo "Invalid target. Options: [fzf, pathogen, vim_plugins, bash, tmux, all]"
 fi
