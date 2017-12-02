@@ -24,6 +24,11 @@ vim_plugins() {
 	git clone https://github.com/terryma/vim-multiple-cursors ~/.vim/bundle/vim-multiple-cursors
 }
 
+bash() {
+	cp .bashrc ~/
+	cp .bash_profile ~/
+}
+
 if [ $1 == "fzf" ] 
 then 
 	fzf
@@ -33,6 +38,9 @@ then
 elif [ $1 == "vim_plugins" ]
 then
 	vim_plugins
+elif [ $1 == "bash" ]
+then
+	bash
 elif [ $1 == "all" ]
 then
 	fzf
