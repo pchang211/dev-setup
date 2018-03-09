@@ -24,6 +24,7 @@ vim_plugins() {
 	git clone https://github.com/terryma/vim-multiple-cursors ~/.vim/bundle/vim-multiple-cursors
 	git clone https://github.com/jiangmiao/auto-pairs
 	git clone https://github.com/kien/ctrlp.vim
+	git clone https://github.com/myusuf3/numbers.vim.git
 }
 
 bash() {
